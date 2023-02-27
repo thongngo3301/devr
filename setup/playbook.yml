@@ -1,0 +1,12 @@
+- hosts: jenkins
+  gather_facts: true
+  tasks:
+    - name: Setup OS
+      import_tasks:
+        file: setup/os.yml
+    - name: Setup Docker
+      import_tasks:
+        file: setup/docker.yml
+    - name: Setup Jenkins
+      import_tasks:
+        file: setup/jenkins.yml

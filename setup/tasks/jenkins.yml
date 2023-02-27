@@ -1,0 +1,21 @@
+- name: Install Jenkins
+  become: true
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - "jenkins={{ jenkins_version }}"
+
+- name: Configure Jenkins to start on boot with systemd
+  become: true
+  service:
+    name: jenkins
+    enabled: true
+    state: started
+
+- name: Check if Jenkins started
+  wait_for:
+    host: "{{ ansible_host }}"
+    port: 8080
+    state: started
+    delay: 0
+    timeout: 60

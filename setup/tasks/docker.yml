@@ -1,0 +1,30 @@
+- name: Install Docker
+  become: true
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - docker-ce
+    - docker-ce-cli
+    - containerd.io
+    - docker-buildx-plugin
+    - docker-compose-plugin
+
+- name: Configure Docker to start on boot with systemd
+  become: true
+  service:
+    name: docker
+    enabled: true
+    state: started
+
+- name: Ensure group "docker" exists
+  become: true
+  group:
+    name: docker
+    state: present
+
+- name: Create default user
+  become: true
+  user:
+    name: "{{ default_user }}"
+    shell: /bin/bash
+    groups: docker
