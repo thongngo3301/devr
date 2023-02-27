@@ -3,10 +3,10 @@
   tasks:
     - name: Setup OS
       import_tasks:
-        file: setup/os.yml
+        file: tasks/os.yml
     - name: Setup Docker
       import_tasks:
-        file: setup/docker.yml
+        file: tasks/docker.yml
     - name: Setup Jenkins
       import_tasks:
-        file: setup/jenkins.yml
+        file: tasks/jenkins.yml
