@@ -1,6 +1,6 @@
 def project = "Devr"
 def repos = [
-  "pastebin"
+  [name: "pastebin", job_path: "Jenkinsfile", job_branch: "master", git_url: "https://github.com/thongngo3301/pastebin"]
 ]
 
 folder("${project}") {
@@ -8,12 +8,18 @@ folder("${project}") {
 }
 
 repos.each { repo ->
-  multibranchPipelineJob("${project}/${project}-multibranch-${repo}") {
-    branchSources {
-      displayName("${project}-multibranch-${repo}")
-      branchSource {
-        source {
-
+  pipelineJob("${project}/${project}-${repo['name']}") {
+    definition {
+      cpsScm {
+        lightweight(true)
+        scriptPath("${repo['job_path']}")
+        scm {
+          git {
+            branch("${repo['job_branch']}")
+            remote {
+              url("${repo['git_url']}")
+            }
+          }
         }
       }
     }

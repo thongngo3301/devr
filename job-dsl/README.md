@@ -17,28 +17,28 @@ In the screen that follows, scroll down to the `Build Steps` section and click o
 
 Then, click on the radio button next to `Use the provided DSL script`, and paste the below code snippet (remember to change the Github URL):
 ```groovy
-jobs:
-  - script: >
-      job('Job Seeder') {
-        scm {
-          git {
-            remote {
-              url('https://github.com/thongngo3301/devr')
-              credential('ro')
-            }
-            branch('master')
-          }
-        }
-        steps {
-          dsl {
-            external('job-dsl/pipelines/*/*.groovy')
-            removeAction('DELETE')
-            removeViewAction('DELETE')
-          }
-        }
-        triggers {
-          scm('*/15 * * * *')
-        }
+job('Job Seeder') {
+  scm {
+    git {
+      remote {
+        url('https://github.com/thongngo3301/devr')
       }
+      branch('master')
+    }
+  }
+  steps {
+    dsl {
+      external('job-dsl/pipelines/*/*.groovy')
+      removeAction('DELETE')
+      removeViewAction('DELETE')
+    }
+  }
+  triggers {
+    scm('H/15 * * * *')
+  }
+}
 ```
+Other options should be like this:
+![alt Other Job seeder options](images/other-job-seeder-options.png "Other Job seeder options")
+
 Click `Save` to create the job. This will take you to the `Job Seeder` job page. Click `Build now` to force Jenkins generate our pipelines immediately.
