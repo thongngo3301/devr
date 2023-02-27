@@ -3,7 +3,7 @@
 - This installation is executed on <b>Ubuntu Server 22.04</b> environment.
 - We will have a `setup` directory, which contains Ansible code to install packages and Jenkins.
 - Go to the `setup` directory, execute the below command to start the installation:
-```
+```yaml
 bash init.sh
 ```
 - It will firstly install the Ansible core, then execute our main Ansible playbook.
@@ -12,7 +12,7 @@ bash init.sh
   2. `docker.yml`: In charge of installing Docker and creating default user `deployer` in Docker group.
   3. `jenkins.yml`: In charge of installing Jenkins.
 - Our result should be like this:
-```make
+```yaml
 PLAY [jenkins] ***************************************************************************************************************************************************************************************************************************************************************
 
 TASK [Gathering Facts] *******************************************************************************************************************************************************************************************************************************************************
