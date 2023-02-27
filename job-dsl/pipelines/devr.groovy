@@ -9,6 +9,13 @@ folder("${project}") {
 
 repos.each { repo ->
   pipelineJob("${project}/${project}-${repo['name']}") {
+    properties {
+      pipelineTriggers {
+        triggers {
+          githubPush()
+        }
+      }
+    }
     definition {
       cpsScm {
         lightweight(true)
