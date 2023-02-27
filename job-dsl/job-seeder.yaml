@@ -1,0 +1,23 @@
+jobs:
+  - script: >
+      job('Job Seeder') {
+        scm {
+          git {
+            remote {
+              url('https://github.com/thongngo3301/devr')
+              credentials('github-ro')
+            }
+            branch('master')
+          }
+        }
+        steps {
+          dsl {
+            external('job-dsl/pipelines/*/*.groovy')
+            removeAction('DELETE')
+            removeViewAction('DELETE')
+          }
+        }
+        triggers {
+          scm('*/15 * * * *')
+        }
+      }

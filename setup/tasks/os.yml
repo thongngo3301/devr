@@ -41,7 +41,5 @@
 
 - name: Update all packages
   become: true
-  apt:
-    name: "*"
-    state: latest
-    force: true
+  shell: |
+    apt update
