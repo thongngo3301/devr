@@ -8,7 +8,7 @@ Go to the `Dashboard > Manage Jenkins > Plugin Manager` page, select `Available 
 ![alt Install Job DSL](images/install-job-dsl.png "Install Job DSL")
 Select `Install without restart`
 
-Next, we will setup some credentials for Github and Docker registry. Go to `Dashboard > Manage Jenkins > Credentials`, click to domain `(global)` then `Add Credentials`. We will create 2 credentials here. First one is the token on Github. We will create it with kind `Secret text` and input the token into. After that, we will create another one with kind `Username with password` for Docker registry.
+Next, we will setup some credentials for <b>Github</b> and <b>Docker registry</b>. Go to `Dashboard > Manage Jenkins > Credentials`, click to domain `(global)` then `Add Credentials`. We will create 2 credentials here. First one is the token on Github. We will create it with kind `Secret text` and input the token into. After that, we will create another one with kind `Username with password` for Docker registry.
 ![alt Create credentials](images/create-creds.png "Create credentials")
 
 
