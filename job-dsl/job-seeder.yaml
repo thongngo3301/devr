@@ -12,12 +12,12 @@ jobs:
         }
         steps {
           dsl {
-            external('job-dsl/pipelines/*/*.groovy')
+            external('job-dsl/pipelines/*.groovy')
             removeAction('DELETE')
             removeViewAction('DELETE')
           }
         }
         triggers {
-          scm('*/15 * * * *')
+          scm('H/15 * * * *')
         }
       }
