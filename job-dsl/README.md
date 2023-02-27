@@ -59,4 +59,10 @@ Our result should look like this:
 ![alt Job view result](images/job-view-result.png "Job view result")
 ![alt Job pipeline result](images/job-pipeline-result.png "Job pipeline result")
 
+Now we will setup webhook in order to make our pipeline automatically run when there are changes on `master` branch. On Jenkins, navigate to `Dashboard > Manage Jenkins > Jenkins' own user database` and select `admin`. Click `Configure` and generate a token named `github`:
+![alt Github webhook token](images/webhook-token.png "Github webhook token")
+
+On Github, go to `Settings` section and add a new webhook with this API token
+![alt Github create webhook](images/create-webhook.png "Github create webhook")
+
 Jenkins pipeline is settled now, we will move on to the logic of the Jenkinsfile, which is documented at [HERE](../pastebin-cicd/README.md).
