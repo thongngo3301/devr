@@ -41,6 +41,18 @@
   shell: |
     echo deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/ | tee /etc/apt/sources.list.d/jenkins.list > /dev/null
 
+- name: Setup Google Chrome Debian package
+  become: true
+  get_url:
+    url: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    dest: /tmp/google-chrome-stable_current_amd64.deb
+    mode: 0755
+
+- name: Install Google Chrome
+  become: true
+  apt:
+    deb: /tmp/google-chrome-stable_current_amd64.deb
+
 - name: Update all packages
   become: true
   shell: |
