@@ -1,5 +1,7 @@
 <h1>CI/CD Pipeline</h1>
 
+Link to my application repository: [Pastebin](https://github.com/thongngo3301/pastebin)
+
 In order to have a pipeline run, we need to create a Jenkins slave for it. In our case, Jenkins slave is also the Jenkins master. But we will still create as a separated node instead of using the Built-in node. Because we want the root directory will be `deployer`, not `jenkins`.
 
 On Jenkins master, switch to user `jenkins` then generate the SSH public key and save the content of file `/var/lib/jenkins/.ssh/id_rsa` as a credential on dashboard.
