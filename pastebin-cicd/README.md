@@ -27,3 +27,7 @@ Our [Jenkinsfile](https://github.com/thongngo3301/pastebin/blob/master/Jenkinsfi
 - <b>Push</b>: Pushing built image to [registry](https://registry.hub.docker.com) with predefined credentials.
 - <b>Deploy</b>: Using `docker-compose` with new image getting from registry, we will (re)create containers on the destination server.
 - <b>Test</b>: Using a Python script to execute an automation test case with Chrome web driver to check whether the application was accessible from a web browser.
+
+With all of the setup until now, we can have the pipeline automatically trigger whenever there is a change on `master` branch. The pipeline will run through those stages step-by-step.
+
+The result of our pipeline should look like this:

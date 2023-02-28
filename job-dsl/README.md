@@ -46,13 +46,11 @@ job('Job Seeder') {
 Other options should be like this:
 ![alt Other Job seeder options](images/other-job-seeder-options.png "Other Job seeder options")
 
-Click `Save` to create the job. This will take you to the `Job Seeder` job page.
+Click `Save` to create the job. This will take you to the `Job Seeder` job page. Click `Build now` once to generate `Job Seeder` pipeline. If `Build now` failed, go to the `Dashboard > Manage Jenkins > ScriptApproval` page then `Approve` for Groovy scripts. After that, try to `Build now` again.
 
 Now we will prepare the Jenkins pipeline for Pastebin by using Job DSL. My code for the pipeline is written in `groovy` at [HERE](pipelines/devr.groovy).
 
-Push the `groovy` file to Github, then go back to our Jenkins `Job Seeder`. Click `Build now` to force Jenkins generate our pipeline immediately.
-
-If `Build now` failed, go to the `Dashboard > Manage Jenkins > ScriptApproval` page then `Approve` for Groovy scripts. After that, try to `Build now` again.
+Push the `groovy` file to Github, then go back to our Jenkins `Job Seeder`. Click `Build now` to force Jenkins generate our pipelines immediately.
 
 Our result should look like this:
 ![alt Job seeder result](images/job-seeder-result.png "Job seeder result")
