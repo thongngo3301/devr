@@ -41,4 +41,12 @@ COPY ./src ./src
 RUN cargo install --path .
 ```
 
+Furthermore, I deleted redundant `volumes` declaration in `docker-compose.yml`:
+![alt remove](images/remove.png "remove")
+
 The result of our pipeline should look like this:
+![alt result](images/result.png "result")
+![alt docker-result](images/docker-result.png "docker-result")
+![alt web-result](images/web-result.png "web-result")
+
+Log for this run: [HERE](logs/success.log)
