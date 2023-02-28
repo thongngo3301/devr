@@ -30,4 +30,15 @@ Our [Jenkinsfile](https://github.com/thongngo3301/pastebin/blob/master/Jenkinsfi
 
 With all of the setup until now, we can have the pipeline automatically trigger whenever there is a change on `master` branch. The pipeline will run through those stages step-by-step.
 
+I also modified Dockerfile to only copy necessary files and folders in order to have static layers, prevent running `cargo install` everytime even when we only edit `Jenkinsfile`.
+```docker
+# Only copy necessary folder
+COPY ./Cargo.toml ./Cargo.toml
+COPY ./api.fbs ./api.fbs
+COPY ./static ./static
+COPY ./src ./src
+
+RUN cargo install --path .
+```
+
 The result of our pipeline should look like this:
