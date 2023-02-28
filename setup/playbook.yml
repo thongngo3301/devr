@@ -1,4 +1,5 @@
 - hosts: jenkins
+  connection: local
   gather_facts: true
   tasks:
     - name: Setup OS
