@@ -11,3 +11,6 @@
     - name: Setup Jenkins
       import_tasks:
         file: tasks/jenkins.yml
+    - name: Setup Python environment
+      import_tasks:
+        file: tasks/python.yml

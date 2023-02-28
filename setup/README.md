@@ -7,10 +7,11 @@
 bash init.sh
 ```
 - It will firstly install the Ansible core, then execute our main Ansible playbook.
-- The playbook includes 3 tasks and will execute respectively:
+- The playbook includes these below tasks and will execute respectively:
   1. `os.yml`: In charge of installing essential packages and preparing deb list for Docker and Jenkins.
   2. `docker.yml`: In charge of installing Docker and creating default user `deployer` in Docker group.
   3. `jenkins.yml`: In charge of installing Jenkins.
+  4. `python.yml`: In charge of setting up Python environment for later automation test.
 - Our result should be like this:
 ```yaml
 PLAY [jenkins] ***************************************************************************************************************************************************************************************************************************************************************

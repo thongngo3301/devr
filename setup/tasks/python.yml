@@ -1,0 +1,15 @@
+- name: Prepare requirements.txt
+  become: true
+  become_user: "{{ default_user }}"
+  template:
+    src: "../templates/requirements.txt.j2"
+    dest: "/home/{{ default_user }}/requirements.txt"
+    owner: "{{ default_user }}"
+    group: "{{ default_user }}"
+    mode: 0644
+
+- name: Install Python dependencies
+  pip:
+    requirements: "/home/{{ default_user }}/requirements.txt"
+    virtualenv: "/home/{{ default_user }}/venv"
+    virtualenv_python: python3
