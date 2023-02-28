@@ -8,6 +8,8 @@
     - curl
     - gnupg
     - lsb-release
+    - acl
+    - virtualenv
     - "openjdk-{{ java_version }}-jdk"
 
 - name: Create a keyring directory
